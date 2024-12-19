@@ -8,14 +8,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem; /* Increased height */
-  background-color: rgba(0, 0, 0, 0.8); /* Darker black theme */
+  background-color: rgba(0, 0, 0, 0.749); /* Darker black theme */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
 }
 
 .header.scrolled {
-  background-color: black;
+  background-color: #080808;
   padding: 15px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -108,7 +108,7 @@
 
 .ctaButton {
   padding: 12px 24px; /* Slightly larger button */
-  background-color: red; /* Red background */
+  background-color: #b30202; /* Red background */
   color: white; /* White font */
   border: none;
   border-radius: 5px;
@@ -118,7 +118,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #ff4d4d; /* Lighter red on hover */
+  background-color: #ff0000; /* Lighter red on hover */
   transform: scale(1.05);
 }
 

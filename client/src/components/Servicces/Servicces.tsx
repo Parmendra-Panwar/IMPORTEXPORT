@@ -34,7 +34,7 @@ const Servicces: React.FC = () => {
           </h6>
         </div>
       </div>
-
+      <br />
       <div className={styles.whatwedo}>
         <img
           src="./images/whatwedo.png"

@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           Home
         </Link>{" "}
         {/* Home Link */}
-        <Link to="/ourwork" className={styles.link}>
+        <Link to="/about" className={styles.link}>
           About
         </Link>{" "}
         {/* About Link */}
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           Contact
         </Link>{" "}
         {/* Contact Link */}
-        <Link to="/ourwork" className={styles.link}>
+        <Link to="/track-order" className={styles.link}>
           Track Order
         </Link>{" "}
         {/* Track Order Link */}

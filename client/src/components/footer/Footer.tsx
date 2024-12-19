@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaPaperPlane,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Footer: React.FC = () => {
   return (
@@ -30,19 +31,29 @@ const Footer: React.FC = () => {
           <h3 className={styles.sectionTitle}>Quick Links</h3>
           <ul className={styles.animatedList}>
             <li>
-              <a href="#">Home</a>
+              <Link to="/" className={styles.link}>
+                Home
+              </Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link to="/about" className={styles.link}>
+                About
+              </Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/contact" className={styles.link}>
+                Contact
+              </Link>
             </li>
             <li>
-              <a href="#">Track Order</a>
+              <Link to="/track-order" className={styles.link}>
+                Track Order
+              </Link>
             </li>
             <li>
-              <a href="#">User Login</a>
+              <Link to="/login" className={styles.link}>
+                LOGIN
+              </Link>
             </li>
           </ul>
         </div>
@@ -76,13 +87,13 @@ const Footer: React.FC = () => {
           </ul>
           <h3 className={styles.sectionTitle}>Follow Us</h3>
           <div className={styles.socialIcons}>
-            <a href="#">
+            <a href="https://www.facebook.com/">
               <FaFacebookF />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/paras.panwar.davm/">
               <FaInstagram />
             </a>
-            <a href="#">
+            <a href="https://x.com/Parmendra444">
               <FaTwitter />
             </a>
           </div>

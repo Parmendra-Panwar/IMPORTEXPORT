@@ -1,6 +1,6 @@
 .mainHeading {
   width: 100%;
-  background-color: #0e0e0e;
+  background-color: #080808;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -23,7 +23,7 @@
     to top,
     transparent,
     transparent 50%,
-    #0e0e0e 50%,
+    #080808 50%,
     #8b0000
   );
   background-position: 0 100%;
@@ -70,7 +70,7 @@
 
 .ctaButton {
   padding: 12px 24px;
-  background-color: red;
+  background-color: #b30202;
   color: white;
   border: none;
   border-radius: 5px;
@@ -80,7 +80,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #ff4d4d;
+  background-color: #ff0000;
   transform: scale(1.05);
 }
 

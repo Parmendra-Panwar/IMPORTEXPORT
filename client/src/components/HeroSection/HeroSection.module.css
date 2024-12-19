@@ -84,7 +84,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: white;
-  background-color: red;
+  background-color: #e40202;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -92,7 +92,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #ff4d4d;
+  background-color: #ff0000;
   transform: scale(1.1);
 } 
 .videoPlay {
