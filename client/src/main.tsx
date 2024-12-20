@@ -13,6 +13,8 @@ import Servicces from "./components/Servicces/Servicces";
 import JustSpace from "./components/JustSpace";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import WhatClientSays from "./components/whatClientSays/WhatClientSays";
+import GetInTouch from "./components/getInTouch/getInTouch";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,8 @@ const router = createBrowserRouter([
             <HeroSection />
             <Cards />
             <Servicces />
+            <WhatClientSays />
+            <GetInTouch />
           </>
         ),
       },
