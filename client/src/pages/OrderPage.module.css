@@ -1,0 +1,98 @@
+/* Order Page Container */
+.container {
+  background-color: #080808;
+  color: #ddd;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Heading for the orders section */
+.heading {
+  font-size: 2.5rem;
+  color: #e63946; /* Softer red color */
+  margin-bottom: 40px;
+}
+
+/* Message when no orders are available */
+.noOrders {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* Container for list of orders */
+.ordersList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px; /* Space between cards */
+  margin-top: 40px;
+}
+
+/* Individual order card */
+.orderCard {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 100%; /* Default to full width on mobile */
+  max-width: 300px; /* Limit max width for cards */
+}
+
+.orderCard:hover {
+  background-color: #e63946;
+  /* transform: translateY(-10px); */
+  color: #fff;
+}
+
+/* Order ID, Date, and Item Details */
+.orderId, .orderDate, .orderStatus, .orderTotal {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.orderItems {
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .orderCard {
+    padding: 15px;
+    max-width: 250px; /* Reduce card width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .ordersList {
+    justify-content: center; /* Center cards on smaller screens */
+  }
+
+  .orderCard {
+    padding: 10px;
+    max-width: 200px; /* Further reduce card width for smaller tablets */
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orderCard {
+    padding: 10px;
+    max-width: 180px; /* Further reduce card width for mobile */
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .orderId, .orderDate, .orderStatus, .orderTotal {
+    font-size: 0.9rem;
+  }
+}

@@ -2,10 +2,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import TrackOrder from "./pages/TrackOrder";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Cards from "./components/products/Cards";
@@ -15,6 +13,10 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import WhatClientSays from "./components/whatClientSays/WhatClientSays";
 import GetInTouch from "./components/getInTouch/GetInTouch";
+import AboutSection from "./pages/About";
+import OrderPage from "./pages/TrackOrder";
+import ServicePage from "./pages/ServicePage";
+import ProductPage from "./pages/ProductPage";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
         path: "about",
         element: (
           <>
-            <JustSpace /> <About />
+            <JustSpace /> <AboutSection />
           </>
         ),
       },
@@ -46,6 +48,15 @@ const router = createBrowserRouter([
         element: (
           <>
             <JustSpace /> <Services />
+          </>
+        ),
+      },
+      {
+        path: "services/:service",
+        element: (
+          <>
+            <JustSpace />
+            <ServicePage />
           </>
         ),
       },
@@ -61,7 +72,16 @@ const router = createBrowserRouter([
         path: "track-order",
         element: (
           <>
-            <JustSpace /> <TrackOrder />
+            <JustSpace /> <OrderPage />
+          </>
+        ),
+      },
+      {
+        path: "/products/:product",
+        element: (
+          <>
+            <JustSpace />
+            <ProductPage />
           </>
         ),
       },

@@ -34,7 +34,7 @@ const Servicces: React.FC = () => {
           </h6>
         </div>
       </div>
-      <br />
+      {/* <br />
       <div className={styles.whatwedo}>
         <img
           src="./images/whatwedo.png"
@@ -57,7 +57,7 @@ const Servicces: React.FC = () => {
 
           <button className={styles.ctaButton}>Explore</button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

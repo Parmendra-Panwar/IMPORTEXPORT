@@ -1,0 +1,194 @@
+/* General Styles */
+.container {
+  background-color: #080808;
+  color: #ddd; /* Softer white font */
+  padding: 30px; /* Increased padding */
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* Hero Section */ 
+.heroSection {
+  background-color: #e63946; /* Softer red accent */
+  padding: 60px 20px; /* More padding for breathing space */
+  text-align: center;
+  color: #fff; /* Pure white font */
+  border-radius: 15px; /* Softer edges */
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.tagline {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+}
+
+.ctaButton {
+  background-color: #222; /* Dark background for buttons */
+  color: #e63946; /* Softer red text */
+  border: 2px solid #e63946;
+  padding: 15px 40px; /* More padding for a prominent button */
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 8px; /* Softer corners */
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #e63946; /* Softer red hover */
+  color: #fff; /* White text on hover */
+  transform: scale(1.05); /* Subtle scaling effect */
+}
+
+/* About Section */
+.aboutSection {
+  padding: 60px 20px; /* Increased padding */
+}
+
+.splitContent, .splitContentReverse {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* More spacing between elements */
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.splitContentReverse {
+  flex-direction: row-reverse;
+}
+
+.image {
+  flex: 1;
+  width: 100%;
+  max-width: 600px; /* Larger max-width for more emphasis */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Deeper shadow for focus */
+}
+
+.textContent {
+  flex: 2;
+}
+
+.subHeading {
+  font-size: 2.5rem;
+  color: #e63946; /* Softer red */
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ddd; /* Softer white */
+}
+
+/* How We Help Section */
+.howWeHelpSection {
+  padding: 60px 20px; /* More padding for visual spacing */
+  text-align: center;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted column size for better content display */
+  gap: 40px; /* More spacing between cards */
+}
+
+.helpCard {
+  background-color: #333; /* Slightly lighter than the main background */
+  padding: 30px; /* Increased padding */
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for better appearance */
+}
+
+.helpCard:hover {
+  background-color: #e63946; /* Softer red hover */
+  transform: translateY(-10px); /* More noticeable hover effect */
+  color: #fff; /* Pure white text on hover */
+}
+
+/* Call-To-Action Section */
+.ctaSection {
+  background-color: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px; /* Increased padding */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Added shadow for focus */
+}
+
+.ctaHeading {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.ctaDescription {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #ddd; /* Softer white */
+}
+
+.ctaButton {
+  padding: 20px 50px; /* More padding for larger buttons */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .splitContent, .splitContentReverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2.8rem;
+  }
+
+  .subHeading {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .ctaButton {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .subHeading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .ctaButton {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

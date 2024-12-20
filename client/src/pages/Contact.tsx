@@ -1,10 +1,14 @@
 import React from "react";
+import GetInTouch from "../components/getInTouch/GetInTouch";
 
 const Contact: React.FC = () => {
   return (
-    <div style={{ color: "white" }}>
-      <h1>Contact Us</h1>
-      <p>Get in touch with us for any inquiries or support.</p>
+    <div
+      style={{
+        color: "white",
+      }}
+    >
+      <GetInTouch />
     </div>
   );
 };

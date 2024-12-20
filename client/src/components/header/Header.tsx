@@ -51,10 +51,18 @@ const Header: React.FC = () => {
           </Link>
           <div className={styles.dropdownMenu}>
             <ul>
-              <li className={styles.dropdownItem}>Air</li>
-              <li className={styles.dropdownItem}>Road</li>
-              <li className={styles.dropdownItem}>Train</li>
-              <li className={styles.dropdownItem}>Ocean</li>
+              <li className={styles.dropdownItem}>
+                <Link to="/services/air">Air</Link>
+              </li>
+              <li className={styles.dropdownItem}>
+                <Link to="/services/road">Road</Link>
+              </li>
+              <li className={styles.dropdownItem}>
+                <Link to="/services/train">Train</Link>
+              </li>
+              <li className={styles.dropdownItem}>
+                <Link to="/services/ocean">Ocean</Link>
+              </li>
             </ul>
           </div>
         </div>
