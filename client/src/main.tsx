@@ -14,7 +14,7 @@ import JustSpace from "./components/JustSpace";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import WhatClientSays from "./components/whatClientSays/WhatClientSays";
-import GetInTouch from "./components/getInTouch/getInTouch";
+import GetInTouch from "./components/getInTouch/GetInTouch";
 
 const router = createBrowserRouter([
   {
