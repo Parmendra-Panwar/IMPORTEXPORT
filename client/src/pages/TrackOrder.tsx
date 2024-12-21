@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./OrderPage.module.css";
-
+import visionImage from "../assets/uc.png";
 // Placeholder data (simulate an order)
 interface Order {
   orderId: string;
@@ -69,8 +69,9 @@ const OrderPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Your Orders</h2>
-      {orders.length === 0 ? (
+      <img src={visionImage} alt="Our Mission" className={styles.usImg} />
+      {/* <h2 className={styles.heading}>Under Construction</h2> */}
+      {/* {orders.length === 0 ? (
         <p className={styles.noOrders}>You have no orders yet.</p>
       ) : (
         <div className={styles.ordersList}>
@@ -78,7 +79,7 @@ const OrderPage: React.FC = () => {
             <OrderCard key={order.orderId} order={order} />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

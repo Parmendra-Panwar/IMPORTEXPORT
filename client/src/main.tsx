@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import App from "./App";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Cards from "./components/products/Cards";
 import Servicces from "./components/Servicces/Servicces";
@@ -17,11 +18,18 @@ import AboutSection from "./pages/About";
 import OrderPage from "./pages/TrackOrder";
 import ServicePage from "./pages/ServicePage";
 import ProductPage from "./pages/ProductPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Auth from "./pages/Auth/Auth";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <>
+        <ScrollToTop />
+        <App />
+      </>
+    ),
     children: [
       {
         path: "/",
@@ -69,10 +77,26 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "policy",
+        element: (
+          <>
+            <JustSpace /> <PrivacyPolicy />
+          </>
+        ),
+      },
+      {
         path: "track-order",
         element: (
           <>
             <JustSpace /> <OrderPage />
+          </>
+        ),
+      },
+      {
+        path: "login",
+        element: (
+          <>
+            <JustSpace /> <Auth />
           </>
         ),
       },

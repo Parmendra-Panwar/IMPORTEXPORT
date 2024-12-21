@@ -17,25 +17,16 @@ const GetInTouch: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/getintouch", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        alert("Message sent successfully!");
-      } else {
-        alert("Failed to send the message.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again.");
-    }
+    const mailtoLink = `mailto:panwparmendra7@gmail.com?subject=Message from ${encodeURIComponent(
+      formData.name
+    )}&body=Name: ${encodeURIComponent(
+      formData.name
+    )}%0D%0AEmail: ${encodeURIComponent(
+      formData.email
+    )}%0D%0AMessage: ${encodeURIComponent(formData.message)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -80,7 +71,7 @@ const GetInTouch: React.FC = () => {
         <h2>Find Us Here:</h2>
         <iframe
           className={styles.mappp}
-          src="https://www.openstreetmap.org/export/embed.html?bbox=2.2943506%2C48.8588443 %2C2.2953506%2C48.8598443&layer=mapnik&marker=48.8588443%2C2.2943506"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=2.2943506%2C48.8588443%2C2.2953506%2C48.8598443&layer=mapnik&marker=48.8588443%2C2.2943506"
           title="Eiffel Tower"
         ></iframe>
       </div>

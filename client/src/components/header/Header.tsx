@@ -31,53 +31,59 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      {" "}
-      {/* Apply styles based on scroll */}
-      <div className={styles.logo}>IMPORT EXPORT</div> {/* Logo Section */}
-      {/* Navigation links */}
+      <div className={styles.logo}>IMPORT EXPORT</div>
       <nav className={`${styles.nav} ${menuVisible ? styles.show : ""}`}>
-        <Link to="/" className={styles.link}>
+        <Link to="/" className={styles.link} onClick={toggleMenu}>
           Home
-        </Link>{" "}
-        {/* Home Link */}
-        <Link to="/about" className={styles.link}>
+        </Link>
+        <Link to="/about" className={styles.link} onClick={toggleMenu}>
           About
-        </Link>{" "}
-        {/* About Link */}
-        {/* Dropdown menu for Services */}
+        </Link>
         <div className={styles.dropdown}>
-          <Link to="/services" className={styles.link}>
+          <Link to="/services" className={styles.link} onClick={toggleMenu}>
             Services
           </Link>
           <div className={styles.dropdownMenu}>
             <ul>
-              <li className={styles.dropdownItem}>
-                <Link to="/services/air">Air</Link>
-              </li>
-              <li className={styles.dropdownItem}>
-                <Link to="/services/road">Road</Link>
-              </li>
-              <li className={styles.dropdownItem}>
-                <Link to="/services/train">Train</Link>
-              </li>
-              <li className={styles.dropdownItem}>
-                <Link to="/services/ocean">Ocean</Link>
-              </li>
+              <Link
+                to="/services/air"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={styles.dropdownItem}>Air</li>
+              </Link>
+              <Link
+                to="/services/road"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={styles.dropdownItem}>Road</li>
+              </Link>
+
+              <Link
+                to="/services/train"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={styles.dropdownItem}>Train</li>
+              </Link>
+
+              <Link
+                to="/services/ocean"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={styles.dropdownItem}>Ocean</li>
+              </Link>
             </ul>
           </div>
         </div>
-        <Link to="/contact" className={styles.link}>
+        <Link to="/contact" className={styles.link} onClick={toggleMenu}>
           Contact
-        </Link>{" "}
-        {/* Contact Link */}
-        <Link to="/track-order" className={styles.link}>
+        </Link>
+        <Link to="/track-order" className={styles.link} onClick={toggleMenu}>
           Track Order
-        </Link>{" "}
-        {/* Track Order Link */}
+        </Link>
       </nav>
-      {/* Login / SignUp button */}
-      <button className={styles.ctaButton}>Login / SignUp</button>
-      {/* Mobile menu toggle button */}
+      <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+        <button className={styles.ctaButton}>Login / SignUp</button>
+      </Link>
       <div className={styles.togglerBtn} onClick={toggleMenu}>
         <div className={styles.chamchamchampa}></div>
         <div className={styles.chamchamchampa}></div>

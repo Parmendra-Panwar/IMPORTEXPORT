@@ -18,12 +18,25 @@ const Footer: React.FC = () => {
           <p>
             Your trusted partner for worldwide logistics and transportation.
           </p>
-          <div className={styles.subscribe}>
+          <p>
+            Imports and exports are essential for economic growth and a balanced
+            global economy.{" "}
+            <span
+              style={{
+                color: "gray",
+                fontWeight: "900",
+                fontSize: "1rem",
+              }}
+            >
+              Orhan Trader
+            </span>
+          </p>
+          {/* <div className={styles.subscribe}>
             <input type="email" placeholder="Your Email Address" />
             <button>
               <FaPaperPlane />
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Quick Links Section */}
@@ -62,18 +75,30 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h3 className={styles.sectionTitle}>Services</h3>
           <ul className={styles.animatedList}>
-            <li>
-              <a href="#">Air</a>
-            </li>
-            <li>
-              <a href="#">Road</a>
-            </li>
-            <li>
-              <a href="#">Train</a>
-            </li>
-            <li>
-              <a href="#">Ocean</a>
-            </li>
+            <Link
+              to={"/services/air"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>Air</li>
+            </Link>
+            <Link
+              to={"/services/road"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>Road</li>
+            </Link>
+            <Link
+              to={"/services/train"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>Train</li>
+            </Link>
+            <Link
+              to={"/services/ocean"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>Ocean</li>
+            </Link>
           </ul>
         </div>
 
@@ -81,9 +106,12 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h3 className={styles.sectionTitle}>Legal</h3>
           <ul className={styles.animatedList}>
-            <li>
-              <a href="#">Privacy Policy</a>
-            </li>
+            <Link
+              to="/policy"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>Privacy Policy</li>
+            </Link>
           </ul>
           <h3 className={styles.sectionTitle}>Follow Us</h3>
           <div className={styles.socialIcons}>

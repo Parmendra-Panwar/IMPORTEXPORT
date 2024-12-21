@@ -1,17 +1,19 @@
 import React from "react";
 import styles from "./About.module.css";
-import teamImage from "../assets/team.jpg"; // Replace with actual image paths
-import ceoImage from "../assets/ceo.jpg"; // Replace with actual image paths
-import missionImage from "../assets/mission.jpg"; // Replace with actual image paths
-import visionImage from "../assets/vision.jpg"; // Replace with actual image paths
+import teamImage from "../assets/team.jpg";
+import ceoImage from "../assets/ceo.jpg";
+import missionImage from "../assets/mission.jpg";
+import visionImage from "../assets/vision.jpg";
+import { Link } from "react-router";
 
 const AboutSection: React.FC = () => {
   return (
     <div className={styles.container}>
-      {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heading}>Welcome to [Your Company Name]</h1>
+          <h1 className={styles.heading} style={{ fontWeight: "700" }}>
+            WELCOME TO <span style={{ color: "black" }}>ORHAN TRADERS</span>
+          </h1>
           <p className={styles.tagline}>
             Connecting businesses globally with efficient import and export
             solutions.
@@ -19,7 +21,6 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* What We Do Section */}
       <section className={styles.whatWeDoSection}>
         <h2 className={styles.subHeading}>What We Do</h2>
         <div className={styles.splitContent}>
@@ -36,7 +37,6 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* How We Help Section */}
       <section className={styles.howWeHelpSection}>
         <h2 className={styles.subHeading}>How We Can Help You</h2>
         <div className={styles.helpGrid}>
@@ -70,7 +70,6 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Vision and Mission Section */}
       <section className={styles.visionMissionSection}>
         <div className={styles.splitContentReverse}>
           <img src={visionImage} alt="Our Vision" className={styles.image} />
@@ -84,9 +83,8 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
       <section className={styles.teamSection}>
-        <h2 className={styles.subHeading}>Meet Our Team</h2>
+        <h2 className={styles.subHeading}>Meet Our Team </h2>
         <div className={styles.splitContent}>
           <div className={styles.textContent}>
             <p className={styles.description}>
@@ -99,29 +97,31 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* CEO Section */}
       <section className={styles.ceoSection}>
         <h2 className={styles.subHeading}>Message from Our CEO</h2>
         <div className={styles.splitContentReverse}>
           <img src={ceoImage} alt="Our CEO" className={styles.image} />
           <div className={styles.textContent}>
             <p className={styles.description}>
-              "At [Your Company Name], we believe in breaking barriers and
-              connecting businesses globally. Let us help you unlock new
-              opportunities." - [CEO Name]
+              "At Orhan Traders, we believe in breaking barriers and connecting
+              businesses globally. Let us help you unlock new opportunities."
             </p>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className={styles.ctaSection}>
         <h2 className={styles.ctaHeading}>Ready to Expand Your Business?</h2>
         <p className={styles.ctaDescription}>
           Join hands with us and explore endless possibilities in the global
           market.
         </p>
-        <button className={styles.ctaButton}>Contact Us</button>
+        <Link
+          to={"/contact"}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <button className={styles.ctaButton}>Contact Us</button>{" "}
+        </Link>
       </section>
     </div>
   );

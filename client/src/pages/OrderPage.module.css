@@ -96,3 +96,34 @@
     font-size: 0.9rem;
   }
 }
+
+
+.usImg {
+  display: block;
+  max-width: 100%; /* Make the image scale within its container */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+/* Media Query for Small Screens (Phones) */
+@media (max-width: 600px) {
+  .usImg {
+    max-width: 90%; /* Reduce the width slightly */
+  }
+}
+
+/* Media Query for Medium Screens (Tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .usImg {
+    max-width: 80%; /* Slightly larger image for tablets */
+  }
+}
+
+/* Media Query for Large Screens (Laptops and Desktops) */
+@media (min-width: 1025px) {
+  .usImg {
+    max-width: 70%; /* Adjust for larger screens */
+  }
+}

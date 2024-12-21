@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./HeroSection.module.css";
+import { Link } from "react-router";
 
 const HeroSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -12,8 +13,8 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 8000);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 2) % images.length);
+    }, 6000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -37,7 +38,14 @@ const HeroSection: React.FC = () => {
             We offer the best solutions for your import-export needs, ensuring
             smooth and hassle-free operations globally.
           </p>
-          <button className={styles.ctaButton}>MEET WITH US</button>
+          <button className={styles.ctaButton}>
+            <Link
+              to={"/contect"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              MEET WITH US{" "}
+            </Link>
+          </button>
         </div>
         <div className={styles.videoPlay}>
           <div className={styles.circle}></div>

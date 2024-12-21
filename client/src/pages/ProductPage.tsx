@@ -1,90 +1,59 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa"; // Import WhatsApp icon
 import styles from "./ProductPage.module.css";
-
-// Array of product data
-const cardsData = [
-  {
-    title: "Food",
-    image:
-      "https://ted-ielts.com/wp-content/uploads/2020/09/foreign-food-ielts-1024x577.png",
-    description:
-      "Savor imported and exported delicacies from around the world.",
-    tagline: "Taste the freshness.",
-    path: "/products/food",
-  },
-  {
-    title: "Marvel",
-    image:
-      "https://www.stonehubindia.com/public/uploads/product/363030226_14_12_2023_06_01_10.webp",
-    description: "Premium Marvel stones and surfaces for luxury interiors.",
-    tagline: "Unmatched elegance.",
-    path: "/products/marvel",
-  },
-  {
-    title: "Metal",
-    image: "https://imports.gov.in/MIMSA/img/Aluminimum-1.png",
-    description: "High-grade metals for industrial and personal projects.",
-    tagline: "Built to last.",
-    path: "/products/metal",
-  },
-  {
-    title: "Toys",
-    image:
-      "https://www.toyartsy.in/storage/media/XRLMZMsQcD0af8FYCCqu8VpEBZZ8kCDL3X7l7En5.png",
-    description: "Explore a wide variety of toys for learning and fun.",
-    tagline: "Play, learn, grow.",
-    path: "/products/toys",
-  },
-  {
-    title: "Ornaments",
-    image:
-      "https://houseofekam.com/cdn/shop/files/Gold-Metal-Round-Chakra-Christmas-Ornament-Set-Of-2-Ornaments-House-of-Ekam_500x.jpg?v=1718004957",
-    description: "Handcrafted ornaments to add sparkle to your celebrations.",
-    tagline: "Crafted with care.",
-    path: "/products/ornaments",
-  },
-  {
-    title: "Dresses",
-    image:
-      "https://i.pinimg.com/originals/9a/51/b0/9a51b0841863aebf4b72caca7082419b.jpg",
-    description: "Elegant dresses for formal and casual occasions.",
-    tagline: "Style that inspires.",
-    path: "/products/dresses",
-  },
-  {
-    title: "Artifacts",
-    image:
-      "https://img.freepik.com/premium-photo/discover-mesmerizing-world-golden-artifacts-with-intricate-designs-reflecting-history-showcasing-unmatched-craftsmanship-cultural-heritage_908344-29138.jpg",
-    description: "Timeless artifacts for art lovers and collectors.",
-    tagline: "Preserve history.",
-    path: "/products/artifacts",
-  },
-];
+import productsData from "./data";
 
 const ProductPage: React.FC = () => {
-  const { product } = useParams(); // Extract the dynamic 'product' from the URL
+  const { product } = useParams<{ product: string }>();
   const navigate = useNavigate();
 
-  // Find the corresponding product based on the route
-  const selectedProduct = cardsData.find(
-    (item) => item.title.toLowerCase() === product
+  const selectedCategory = productsData.find(
+    (item) => item.path.split("/").pop() === product
   );
 
-  if (!selectedProduct) {
-    return <p>Product not found</p>;
+  if (!selectedCategory) {
+    return <p>Product category not found</p>;
   }
+
+  const phoneNumber = "7067416638"; // Your WhatsApp number
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>{selectedProduct.title}</h2>
-      <img
-        src={selectedProduct.image}
-        alt={selectedProduct.title}
-        className={styles.image}
-      />
-      <p className={styles.description}>{selectedProduct.description}</p>
-      <p className={styles.tagline}>{selectedProduct.tagline}</p>
+      <h2 className={styles.heading}>{selectedCategory.title}</h2>
+      <p className={styles.tagline}>{selectedCategory.tagline}</p>
+      <div className={styles.productsContainer}>
+        {selectedCategory.products.map((product) => {
+          const whatsappMessage = `Hello! I am interested in the ${product.name} (${product.tagline}) priced at ${product.price}. Please provide more details.`;
+          const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+            whatsappMessage
+          )}`;
+
+          return (
+            <div key={product.id} className={styles.productCard}>
+              <img
+                src={product.image}
+                alt={product.name}
+                className={styles.productImage}
+              />
+              <h3 className={styles.productName}>{product.name}</h3>
+              <p className={styles.productPrice}>{product.price}</p>
+              <p className={styles.productTagline}>{product.tagline}</p>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappButtonLink}
+              >
+                <button className={styles.whatsappButton}>
+                  <FaWhatsapp className={styles.whatsappIcon} />
+                  Contact on WhatsApp
+                </button>
+              </a>
+            </div>
+          );
+        })}
+      </div>
       <button className={styles.backButton} onClick={() => navigate(-1)}>
         Go Back
       </button>
