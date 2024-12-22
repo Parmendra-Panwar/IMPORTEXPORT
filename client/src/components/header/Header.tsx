@@ -31,7 +31,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>IMPORT EXPORT</div>
+      <div className={styles.logo}>ORHAN TRADERS</div>
       <nav className={`${styles.nav} ${menuVisible ? styles.show : ""}`}>
         <Link to="/" className={styles.link} onClick={toggleMenu}>
           Home
