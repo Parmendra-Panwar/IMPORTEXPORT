@@ -25,6 +25,7 @@
   background-position: center;
   background-repeat: no-repeat;
   animation: slowZoom 20s infinite;
+  transition: background-image 1.5s ease-in-out, transform 1.5s ease-in-out;
 }
 
 @keyframes slowZoom {
@@ -32,12 +33,13 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
   100% {
-    transform: scale(1.08);
+    transform: scale(1.1);
   }
 }
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;

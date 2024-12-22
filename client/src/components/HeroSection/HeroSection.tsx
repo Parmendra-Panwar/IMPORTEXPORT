@@ -13,8 +13,8 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 2) % images.length);
-    }, 6000);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5500);
     return () => clearInterval(interval);
   }, [images.length]);
 
