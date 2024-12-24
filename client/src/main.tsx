@@ -20,8 +20,11 @@ import ServicePage from "./pages/ServicePage";
 import ProductPage from "./pages/ProductPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Auth from "./pages/Auth/Auth";
+import Profile from "./pages/Profile";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: (
@@ -101,6 +104,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "mee",
+        element: (
+          <>
+            <JustSpace /> <Profile />
+          </>
+        ),
+      },
+      {
         path: "/products/:product",
         element: (
           <>
@@ -136,10 +147,14 @@ const router = createBrowserRouter([
       </>
     ),
   },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
