@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setUser, clearUser } from "../../redux/userSlice";
 import styles from "./Auth.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Auth: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,81 +15,39 @@ const Auth: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user.user);
 
+  const navigate = useNavigate();
+
   const toggleForm = () => setIsLogin(!isLogin);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  useEffect(() => {
-    const checkUserSession = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/session", {
-          method: "GET",
-          credentials: "include",
-        });
 
-        if (response.ok) {
-          const data = await response.json();
-          if (data.user) {
-            dispatch(setUser(data.user));
-          }
-        }
-      } catch (error) {
-        console.error("Failed to fetch user session:", error);
-      }
+  const idd = Math.random().toString().slice(2, 8);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const simulatedResponse = {
+      user: {
+        _id: idd,
+        email: formData.email,
+        username: isLogin ? "ExistingUser" : formData.username,
+        orders: [],
+      },
+      message: isLogin ? "Logged in successfully!" : "Signed up successfully!",
     };
 
-    checkUserSession();
-  }, [dispatch]);
+    dispatch(setUser(simulatedResponse.user));
+    alert(simulatedResponse.message);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const endpoint = isLogin ? "/login" : "/signup";
-    const payload = isLogin
-      ? { email: formData.email, password: formData.password }
-      : { ...formData };
-
-    try {
-      const response = await fetch(`http://localhost:3000${endpoint}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        credentials: "include",
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Network response was not ok");
-      }
-
-      const data = await response.json();
-      if (data.user) {
-        console.log("User received from backend:", data.user);
-        dispatch(setUser(data.user));
-        alert(data.message || (isLogin ? "Logged in" : "Signed up"));
-        // window.location.href = "/mee";
-      } else {
-        alert("Authentication failed");
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        alert("An error occurred: " + error.message);
-      } else {
-        alert("An unknown error occurred");
-      }
-    }
+    navigate("/mee");
   };
-
-  // useEffect(() => {
-  //   console.log(isLogin ? "Showing login form" : "Showing signup form");
-  // }, [isLogin]);
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <h1 className={styles.title}>{isLogin ? "Login" : "Sign Up"}</h1>
-        <h2>Hey Users</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="email"

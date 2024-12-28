@@ -22,7 +22,10 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Auth from "./pages/Auth/Auth";
 import Profile from "./pages/Profile";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import store from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./redux/store";
+// import Admin from "./pages/Admin";
 
 const routes = [
   {
@@ -111,6 +114,14 @@ const routes = [
           </>
         ),
       },
+      // {
+      //   path: "admin",
+      //   element: (
+      //     <>
+      //       <JustSpace /> <Admin />
+      //     </>
+      //   ),
+      // },
       {
         path: "/products/:product",
         element: (
@@ -154,7 +165,9 @@ const router = createBrowserRouter(routes);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

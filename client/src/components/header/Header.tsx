@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react"; // Importing necessary hooks from React
 import { Link } from "react-router-dom"; // Importing Link component for navigation
 import styles from "./Header.module.css"; // Importing CSS modules for styling
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Header: React.FC = () => {
+  const user = useSelector((state: RootState) => state.user.user);
   const [isScrolled, setIsScrolled] = useState(false); // State to track if the page is scrolled
   const [menuVisible, setMenuVisible] = useState(false); // State to control visibility of the mobile menu
 
@@ -81,9 +84,17 @@ const Header: React.FC = () => {
           Track Order
         </Link>
       </nav>
-      <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
-        <button className={styles.ctaButton}>Login / SignUp</button>
-      </Link>
+      {!user && (
+        <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+          <button className={styles.ctaButton}>Login / SignUp</button>
+        </Link>
+      )}
+      {user && (
+        <Link to="/mee" style={{ textDecoration: "none", color: "inherit" }}>
+          <button className={styles.ctaButton}>Profile</button>
+        </Link>
+      )}
+
       <div className={styles.togglerBtn} onClick={toggleMenu}>
         <div className={styles.chamchamchampa}></div>
         <div className={styles.chamchamchampa}></div>

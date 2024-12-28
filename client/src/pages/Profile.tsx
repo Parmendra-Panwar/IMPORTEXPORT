@@ -1,35 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import styles from "./Profile.module.css";
-import { setUser, clearUser } from "../redux/userSlice";
+import { clearUser } from "../redux/userSlice";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user.user);
-  console.log(user);
-  console.log("gncfc");
-  useEffect(() => {
-    const checkUserSession = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/session", {
-          method: "GET",
-          credentials: "include",
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          if (data.user) {
-            dispatch(setUser(data.user));
-          }
-        }
-      } catch (error) {
-        console.error("Failed to fetch user session:", error);
-      }
-    };
-
-    checkUserSession();
-  }, [dispatch]);
 
   if (!user) {
     return (
