@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
+import { RootState } from "../app/store";
 import styles from "./Profile.module.css";
-import { clearUser } from "../redux/userSlice";
+import { clearUser } from "../app/userSlice";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();

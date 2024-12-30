@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"; // Importing ne
 import { Link } from "react-router-dom"; // Importing Link component for navigation
 import styles from "./Header.module.css"; // Importing CSS modules for styling
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState } from "../../app/store";
 
 const Header: React.FC = () => {
   const user = useSelector((state: RootState) => state.user.user);

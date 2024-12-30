@@ -22,9 +22,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Auth from "./pages/Auth/Auth";
 import Profile from "./pages/Profile";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import store from "./app/store";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistor } from "./redux/store";
+import { persistor } from "./app/store";
 // import Admin from "./pages/Admin";
 
 const routes = [
